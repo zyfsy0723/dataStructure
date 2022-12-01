@@ -16,6 +16,10 @@ public class MyArray {
      */
     public void insert(int element, int index) {
         // int[] arr = [0,1,2,3,4,5,N,N,N,N]
+        // 如果实际元素达到数组上限，要扩容
+        if(size >= array.length){
+            resize();
+        }
         // 从右往左腾出位置
         for (int i = size - 1; i >= index; i--) {
             array[i] = array[i-1 ];
@@ -23,6 +27,12 @@ public class MyArray {
         // 塞进去
         array[index] = element;
         size++;
+    }
+
+    private void resize() {
+        int[] arrayNew = new int[array.length * 2];
+        System.arraycopy(array, 0, arrayNew, 0, array.length);
+        array = arrayNew;
     }
 
     /**
