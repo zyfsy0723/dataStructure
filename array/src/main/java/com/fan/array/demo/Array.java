@@ -11,6 +11,8 @@ public class Array {
         myArray.insert(5,1);
         myArray.output();
 
+
+
     }
 
 
